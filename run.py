@@ -5,7 +5,7 @@
 from turtle import update
 from loguru import logger #
 
-from config_inuse import GLOBAL_CONFIGS #
+from config import GLOBAL_CONFIGS #
 import functions as func #
 from aliyundns import Sample as Aliyun #
 
