@@ -42,7 +42,6 @@ class Sample:
         @throws Exception
         """
         if isinstance(self._client, Alidns20150109Client):
-            print(self._client)
             return self._client
         
         config = open_api_models.Config(

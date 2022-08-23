@@ -2,7 +2,6 @@
     
     
 """
-from turtle import update
 from loguru import logger #
 
 from config import GLOBAL_CONFIGS #
@@ -72,8 +71,9 @@ class Run:
                             value=self._kp_out_ip,
                             record_id=record.record_id,
                         )
-                        aliyun_obj.update_domain_record_async(**update_params)
-                        print(sub,sub_ip, update_params)
+                        result = aliyun_obj.update_domain_record_async(**update_params)
+                        logger.add(f"update record domain:{record.rr}.{k} use new ip:{self._kp_out_ip} record_id/Fasle:{result}")
+                        # print(sub,sub_ip, update_params)
                 #END subdomain
             #END records
         #END for domains

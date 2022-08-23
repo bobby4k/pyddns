@@ -30,5 +30,6 @@
         - cd pyddns/
         - python ./run.py
     - 3、添加crontab
+        - PS: 这一步也可在宿主机添加, 命令换成 docker exec -c 
         - crontab -e 
-        - */600 * * * * python /opt/pyddns/run.py
+        - */15 * * * * python /opt/pyddns/run.py
