@@ -8,15 +8,19 @@
     - docker: python:3.10.6-slim-bullseye
 
 ## 阿里云API 云解析文档
-    - 云解析OpenAPI概览:[https://next.api.aliyun.com/document/Alidns/2015-01-09/overview)](https://next.api.aliyun.com/document/Alidns/2015-01-09/overview)
+    
+    - 云解析OpenAPI概览: 
+[https://next.api.aliyun.com/document/Alidns/2015-01-09/overview)](https://next.api.aliyun.com/document/Alidns/2015-01-09/overview "openapi")
 
-    - API申请管理地址: [https://ram.console.aliyun.com/manage/ak](https://ram.console.aliyun.com/manage/ak)
+    - API申请管理地址: 
+[https://ram.console.aliyun.com/manage/ak](https://ram.console.aliyun.com/manage/ak "api manage")
 
 ## 使用步骤
     - 1、部署
         - 下载release或者git clone代码
-        - cd pyddns/
-        - pip install -r requirements.txt
+            - cd pyddns/
+        - 安装依赖
+            - pip install -r requirements.txt
         - 修改config文件, 添加配置
             access_key_id
             access_key_secret
