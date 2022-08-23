@@ -1,0 +1,11 @@
+# source:aliyun
+# -i http://mirrors.aliyun.com/pypi/simple/
+# --trusted-host mirrors.aliyun.com
+
+#aliyun sdk
+#https://help.aliyun.com/document_detail/315448.html
+alibabacloud_alidns20150109==3.0.0
+
+
+# log
+loguru
