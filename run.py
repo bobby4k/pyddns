@@ -56,6 +56,9 @@ class Run:
             subdomain_name = f'{v[0]}.{k}'
             domain_name = k
             domain_records = aliyun_obj.describe_domain_records(domain_name=domain_name)
+            if domain_records==None or len(domain_name)==0:
+                logger.info(f"empty record domain:{domain_name}")
+                continue
             
             for record in domain_records:
                 #1 排除不使用子域名
@@ -71,9 +74,9 @@ class Run:
                             value=self._kp_out_ip,
                             record_id=record.record_id,
                         )
+                        # result = None
                         result = aliyun_obj.update_domain_record_async(**update_params)
-                        logger.add(f"update record domain:{record.rr}.{k} use new ip:{self._kp_out_ip} record_id/Fasle:{result}")
-                        # print(sub,sub_ip, update_params)
+                        logger.info(f"update record domain:{record.rr}.{k} use new ip:{self._kp_out_ip} record_id:{result}")
                 #END subdomain
             #END records
         #END for domains
@@ -85,8 +88,14 @@ class Run:
         检查域名ip是否和本程序公网ip相同
         """
         is_checked = True #True通过， False未通过
-        out_ip = func.get_out_ip(1)
-        logger.info(f"get out ip:{out_ip}")
+        for method in range(0,4):
+            try:
+                out_ip = func.get_out_ip(method=method)
+                logger.info(f"get[{method}] out ip:{out_ip}")
+                break
+            except:
+                continue
+        #END get_out_ip
         
         if func.str_is_ip(out_ip) == False:
             assert RuntimeError("can't get out ip")

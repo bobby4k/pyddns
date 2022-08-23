@@ -9,7 +9,7 @@ import re #
 from loguru import logger #
 
 # 获取外网IP
-def get_out_ip(timeout=1, method=0):
+def get_out_ip(method=0, timeout=1):
     out_ip = None 
 
     if method == 0:
