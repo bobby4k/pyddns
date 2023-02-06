@@ -9,6 +9,7 @@ import re #
 from loguru import logger #
 
 # 获取外网IP
+#TODO add cip.cc
 def get_out_ip(method=0, timeout=1):
     out_ip = None 
 
